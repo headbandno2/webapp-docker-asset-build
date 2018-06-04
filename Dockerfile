@@ -29,6 +29,7 @@ RUN . ~/.bashrc \
   && gem install bundler
 
 # ==============================================================================
-RUN npm i -g yarn grunt-cli bower
+RUN rm /usr/local/bin/yarn \
+  && npm i -g yarn grunt-cli bower
 
 WORKDIR /var/www/html
