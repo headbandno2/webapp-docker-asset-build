@@ -17,4 +17,7 @@ $: docker exec -it zeel-website-build yarn install
 
 # install package, f.e. underscorejs
 $: docker exec -it zeel-website-build yarn add underscorejs --dev
+
+# install different version of package, f.e. underscorejs
+$: docker exec -it zeel-website-build yarn add underscorejs1@npm:underscore@^1.0.0 --dev
 ```
