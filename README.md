@@ -16,5 +16,5 @@ $: docker exec -it zeel-website-build grunt newer:coffee2
 $: docker exec -it zeel-website-build yarn install
 
 # install package, f.e. underscorejs
-$: docker exec -it zeel-website-build yarn add underscorejs
+$: docker exec -it zeel-website-build yarn add underscorejs --dev
 ```
