@@ -36,6 +36,6 @@ RUN . ~/.bashrc \
 # ==============================================================================
 RUN rm /usr/local/bin/yarn \
   && npm i -g yarn \
-  && yarn global add grunt-cli@^v1.2.0 bower@^1.8.4 codeceptjs@^1.2.1 puppeteer@^1.4.0
+  && yarn global add elm grunt-cli@^v1.2.0 bower@^1.8.4 codeceptjs@^1.2.1 puppeteer@^1.4.0
 
 WORKDIR /var/www/html
