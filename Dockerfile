@@ -31,7 +31,8 @@ RUN . ~/.bashrc \
   && apt-get install -y php7.1
 
 RUN . ~/.bashrc \
-  && gem install bundler
+  && gem install bundler \
+  && bundle config cache_path /usr/local/share/.cache/bundler
 
 # ==============================================================================
 RUN rm /usr/local/bin/yarn \
