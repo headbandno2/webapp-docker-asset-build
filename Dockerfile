@@ -32,6 +32,7 @@ RUN . ~/.bashrc \
 
 RUN . ~/.bashrc \
   && gem install bundler \
+  && mkdir -p /usr/local/share/.cache/bundler \
   && bundle config cache_path /usr/local/share/.cache/bundler
 
 # ==============================================================================
