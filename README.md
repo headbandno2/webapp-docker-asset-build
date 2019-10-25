@@ -1,23 +1,21 @@
-# web-docker-build-legacy
-
 ## Possible usage
 
 ```bash
-# enter bash
-$: docker exec -it zeel-website-build bash
+# Enter bash
+$: docker exec -it webapp-build-asset bash
 
-# launch grunt watch
-$: docker exec -it zeel-website-build grunt
+# Launch grunt watch
+$: docker exec -it webapp-build-asset grunt
 
-# do specific grunt task, f.e. build newer coffee2 files
-$: docker exec -it zeel-website-build grunt newer:coffee2
+# Run docker build
+$: docker exec -it webapp-build-asset grunt build
 
-# install packages
-$: docker exec -it zeel-website-build yarn install
+# Install packages
+$: docker exec -it webapp-build-asset yarn install
 
-# install package, f.e. underscorejs
-$: docker exec -it zeel-website-build yarn add underscorejs --dev
+# Install package, f.e. underscorejs
+$: docker exec -it webapp-build-asset yarn add underscorejs --dev
 
-# install different version of package, f.e. underscorejs
-$: docker exec -it zeel-website-build yarn add underscorejs1@npm:underscore@^1.0.0 --dev
+# Install different version of package, f.e. underscorejs
+$: docker exec -it webapp-build-asset yarn add underscorejs1@npm:underscore@^1.0.0 --dev
 ```
