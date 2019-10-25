@@ -1,6 +1,6 @@
-FROM node:8.10.0-slim
+FROM node:12-slim
 
-# ==============================================================================
+
 RUN echo "America/New_York" > /etc/timezone
 RUN dpkg-reconfigure -f noninteractive tzdata
 
@@ -21,23 +21,28 @@ RUN git clone https://github.com/rbenv/rbenv.git ~/.rbenv \
 COPY .bashrc /root/.bashrc
 
 RUN . ~/.bashrc \
-  && rbenv install 2.4.2 \
-  && rbenv global 2.4.2
+  && rbenv install 2.6.5 \
+  && rbenv global 2.6.5
 
 RUN . ~/.bashrc \
   && curl https://packages.sury.org/php/apt.gpg | apt-key add - \
   && echo "deb https://packages.sury.org/php/ $(lsb_release -sc) main" > /etc/apt/sources.list.d/php.list \
   && apt-get update \
-  && apt-get install -y php7.1
+  && apt-get install -y php7.3
 
 RUN . ~/.bashrc \
   && gem install bundler \
   && mkdir -p /usr/local/share/.cache/bundler \
   && bundle config cache_path /usr/local/share/.cache/bundler
 
-# ==============================================================================
+
 RUN rm /usr/local/bin/yarn \
   && npm i -g yarn \
-  && yarn global add elm grunt-cli@^v1.2.0 bower@^1.8.4 codeceptjs@^1.2.1 puppeteer@^1.4.0
+  && yarn global add elm@0.18.0 elm-format grunt-cli@v1.3.2 bower@1.8.8 codeceptjs@^1.2.1 puppeteer@^1.4.0
 
 WORKDIR /var/www/html
+
+VOLUME /usr/local/share/.cache/bundler
+VOLUME /var/www/html/node_modules
+VOLUME /var/www/html/elm-stuff
+VOLUME /var/www/html/.sass-cache
